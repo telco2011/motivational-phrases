@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="appFileAppender" class="org.apache.log4j.FileAppender">
+		<param name="Append" value="true" />
+		<param name="File" value="${jboss.server.log.dir}/motivation-phrases.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="thirdPartyFileAppender" class="org.apache.log4j.FileAppender">
+		<param name="Append" value="true" />
+		<param name="File" value="${jboss.server.log.dir}/thirdParty.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="rootAppender" class="org.apache.log4j.FileAppender">
+		<param name="File" value="${jboss.server.log.dir}/root.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %p - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Application Loggers -->
+	<logger name="es.tlc.motivational">
+		<level value="DEBUG" />
+		<appender-ref ref="appFileAppender" />
+	</logger>
+
+	<!-- 3rdparty Loggers -->
+	<!-- Spring -->
+	<logger name="org.springframework.core">
+		<level value="INFO" />
+		<appender-ref ref="thirdPartyFileAppender" />
+	</logger>
+	<logger name="org.springframework.beans">
+		<level value="INFO" />
+		<appender-ref ref="thirdPartyFileAppender" />
+	</logger>
+	<logger name="org.springframework.context">
+		<level value="INFO" />
+		<appender-ref ref="thirdPartyFileAppender" />
+	</logger>
+	<logger name="org.springframework.web">
+		<level value="INFO" />
+		<appender-ref ref="thirdPartyFileAppender" />
+	</logger>
+
+	<!-- Thymeleaf -->
+	<logger name="org.thymeleaf">
+		<level value="INFO" />
+		<appender-ref ref="thirdPartyFileAppender" />
+	</logger>
+
+	<root>
+		<priority value="INFO" />
+		<appender-ref ref="rootAppender" />
+	</root>
+
+</log4j:configuration>

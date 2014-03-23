@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>motivational-phrases</artifactId>
+	<artifactId>motivational-phrases-jar</artifactId>
 	<groupId>es.tlc.motivational</groupId>
 	<version>1.0.0</version>
-	<name>Motivational Phrases</name>
-
+	<name>Motivational Phrases Library</name>
+	
 	<dependencies>
 
 		<!-- Spring framework -->
@@ -67,6 +67,7 @@
 				</executions>
 				<configuration>
 					<mainClass>es.tlc.motivational.core.GetFrase</mainClass>
+					<commandlineArgs>-Dfile.encoding=UTF-8</commandlineArgs>
 				</configuration>
 			</plugin>
 		</plugins>
