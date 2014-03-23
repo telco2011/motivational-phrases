@@ -1,10 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<packaging>jar</packaging>
 	<artifactId>motivational-phrases</artifactId>
 	<groupId>es.tlc.motivational</groupId>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<name>Motivational Phrases</name>
 
 	<dependencies>
@@ -28,7 +27,7 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>2.11.0</version>
 		</dependency>
-		
+
 		<!-- Spring data mongodb -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -52,9 +51,25 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>es.tlc.motivational.core.GetFrase</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

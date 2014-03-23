@@ -65,7 +65,7 @@ public class Frase {
 
 	@Override
 	public String toString() {
-		return "Frase [id=" + id + ", Frase #=" + contador + ", frase=" + frase + ", autor=" + autor + "]";
+		return "Frase [id=" + id + ", Frase #=" + contador + ", " + frase + " [" + autor + "]";
 	}
 
 }
