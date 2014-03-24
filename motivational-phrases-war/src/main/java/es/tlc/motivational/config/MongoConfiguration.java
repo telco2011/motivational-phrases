@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 
 @Configuration
 @EnableMongoRepositories
@@ -20,12 +21,16 @@ public class MongoConfiguration extends AbstractMongoConfiguration {
 	
 	@Override
 	protected String getDatabaseName() {
-		return env.getProperty("mongo.database");
+		return "davemongo";
 	}
 
 	@Override
 	public Mongo mongo() throws Exception {
-		return new MongoClient(env.getProperty("mongo.host"), Integer.parseInt(env.getProperty("mongo.port")));
+		return new MongoClient(getMongoURI());
+	}
+	
+	private MongoClientURI getMongoURI() throws Exception {
+		return new MongoClientURI("mongodb://readuser:readuser@troup.mongohq.com:10011/davemongo");
 	}
 
 }
